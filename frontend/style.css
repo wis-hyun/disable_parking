@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: "Apple SD Gothic Neo", sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.timestamp {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+main {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.video-card {
+  position: relative;
+  background: #111;
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.video-card::after {
+  content: "🔍 클릭하여 확대";
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-size: 12px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.video-card:hover::after {
+  opacity: 0.9;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.video-title {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #aaa;
+}
+
+.status {
+  float: right;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status.illegal {
+  color: red;
+  font-weight: bold;
+}
+
+.status.legal {
+  color: green;
+  font-weight: bold;
+}
+
+.status.outside {
+  color: gray;
+  font-weight: bold;
+}
+
+.info-section {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.info-section .status {
+  float: none;
+  display: inline;
+  padding: 0;
+  margin-right: 4px;
+}
+
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #e5e7eb;
+  margin-top: 40px;
+}
+
+/* =====================
+   🔥 Fullscreen Modal
+===================== */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease;
+}
+
+.video-modal.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-header {
+  height: 56px;
+  background: #111;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#modalVideo {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 56px);
+  object-fit: contain;
+  background: black;
+}

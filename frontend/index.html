@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>장애인 주차구역 불법 주차 감지 시스템</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🚗 장애인 주차구역 불법 점유 감지 시스템</h1>
+    <p>주차장 관리자를 위한 AI 영상 분석 대시보드</p>
+    <div id="timestamp" class="timestamp"></div>
+  </header>
+
+  <main>
+    <section class="video-wall">
+      <h2>📡 실시간 주차 구역 모니터링</h2>
+      <div id="videoGrid" class="video-grid"></div>
+    </section>
+
+    <section class="info-section">
+      <h2>🧠 판별 기준 안내</h2>
+      <ul>
+        <li><span class="status illegal">ILLEGAL</span> : 장애인 구역 주차 + 표식 없음</li>
+        <li><span class="status legal">LEGAL</span> : 장애인 구역 주차 + 표식 있음</li>
+        <li><span class="status outside">OUTSIDE</span> : 장애인 구역 외 주차</li>
+      </ul>
+      <p class="notice">
+        ※ 본 시스템은 단속이 아닌 관리 보조 목적의 AI 분석 도구입니다. (시연 영상)
+      </p>
+    </section>
+  </main>
+  <div id="videoModal" class="video-modal hidden">
+    <div class="modal-header">
+      <button id="backBtn">← 돌아가기</button>
+      <span id="modalTitle"></span>
+    </div>
+    <video id="modalVideo" controls muted playsinline></video>
+  </div>
+
+  <footer>
+    <p>Computer Vision Final Project · 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
